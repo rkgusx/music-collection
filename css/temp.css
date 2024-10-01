@@ -1,0 +1,35 @@
+.entry-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+  }
+  
+  .entry-icons a {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    background-color: #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .grid-container img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+  
+  .entry10-main, .entry11-main {
+    grid-column: span 1;
+    grid-row: 4;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
