@@ -5,6 +5,19 @@
   grid-template-rows: repeat(8, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  transform: scale(0.5);
   }
 
 
+.icons {
+  display: flex; /* 이미지가 가운데에 위치하도록 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 10px; /* 그리드 셀 내부에 여백 추가 */
+}
+
+.icons img {
+  max-width: 80%; /* 이미지가 셀의 너비의 80% 이하로 설정 */
+  max-height: 80%; /* 이미지가 셀의 높이의 80% 이하로 설정 */
+  object-fit: cover; /* 이미지를 비율에 맞춰 잘라서 표시 */
+}
