@@ -46,14 +46,13 @@ body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    gap: 4.7px;
+    gap: 6px;
     width: 74%; 
-    max-width: 752px;
+    max-width: 753px;
     margin: 20px auto; 
     position: relative; 
     z-index: 2; 
     top: 90px;
-    left: 3px;
 }
 
 .takoyaki-grid {
