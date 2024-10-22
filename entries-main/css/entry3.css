@@ -1,13 +1,13 @@
 body {
     margin: 0;
     position: relative;
-    height: 100vh; 
-    overflow: hidden; 
+    height: auto;
+    overflow: auto;
     background-color: #353333;
 }
 
 .home-button {
-    position: absolute;
+    position: fixed;
     top: 15px;
     right: 10px;
     width: 50px;
@@ -28,7 +28,7 @@ body {
 
 .takoyaki-pan {
     position: absolute;
-    top: 0; 
+    top: 140px; 
     left: 0;
     width: 100%; 
     height: 100%;
@@ -52,7 +52,7 @@ body {
     margin: 20px auto; 
     position: relative; 
     z-index: 2; 
-    top: 88px;
+    top: 266px;
 }
 
 .takoyaki-grid {
@@ -67,4 +67,17 @@ body {
     object-fit: cover; 
     margin: auto;
     display: block; 
+}
+
+.lights {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    top: 20px;
+    text-align: center;
+}
+
+.lights img {
+    display: block; 
+    margin: 0 auto; 
 }

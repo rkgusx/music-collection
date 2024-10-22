@@ -4,6 +4,16 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  overflow: hidden;
+}
+
+@keyframes scale-back {
+  0% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(0.4);
+  }
 }
 
 .iphone-with-icons {
@@ -11,18 +21,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: scale(0.2); /* size 조절 */
+  animation: scale-back 2s ease forwards, bounce 0.5s ease forwards;
 }
 
 .iphone-frame {
-  width: 100%; /* iPhone frame size */
+  width: 100%; 
   height: auto;
   display: block;
 }
 
 .main-grid {
   position: absolute;
-  top: 15%; /* grid 위치 */
+  top: 15%;
   width: 80%;
   height: 70%;
   display: grid;
