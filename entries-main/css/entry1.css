@@ -157,22 +157,15 @@ h2 {
     font-weight: bold;
 }
 
-.lyrics.visible {
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-
 .lyrics {
-    position: relative; 
-    font-size: 24px; 
-    line-height: 1.5;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.lyrics div {
-    position: absolute; 
-    width: 100%;
-    left: 0; 
-    transform: translateY(20px); 
+    position: absolute;
+    bottom: 445px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #453935;
+    font-size: 0.8rem;
+    text-align: center;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: opacity 0.5s ease-in;
 }

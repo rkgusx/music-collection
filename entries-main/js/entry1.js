@@ -4,39 +4,59 @@ const progressBar = document.getElementById('progressBar');
 const progress = document.getElementById('progress');
 const currentTime = document.getElementById('currentTime');
 const durationTime = document.getElementById('durationTime');
-const lyricsContainer = document.getElementById('lyrics');
-
-const lyrics = [
-    { time: 12, text: "Please, don't see" },
-    { time: 17, text: "Just a boy caught up in dreams and fantasies" },
-    { time: 24, text: "Please, see me" },
-    { time: 29, text: "Reaching out for someone I can't see" },
-    { time: 34, text: "Take my hand\nLet's see where we wake up tomorrow" },
-    { time: 40, text: "Best laid plans\nSometimes are just a one night stand" },
-    { time: 46, text: "I'll be damned\nCupid's demanding back his arrow" },
-    { time: 52, text: "So let's get drunk on our tears" },
-    { time: 59, text: "And, God, tell us the reason" },
-    { time: 63, text: "Youth is wasted on the young" },
-    { time: 67, text: "It's hunting season and the lambs are on the run" },
-    { time: 73, text: "Searching for meaning" },
-    { time: 76, text: "But are we all lost stars\nTrying to light up the dark?" },
-    { time: 84, text: "Who are we?" },
-    { time: 89, text: "Just a speck of dust within the galaxy" },
-    { time: 93, text: "Woe is me" },
-    { time: 97, text: "If we're not careful turns into reality" },
-    { time: 101, text: "Don't you dare let our best memories bring you sorrow" },
-    { time: 106, text: "Yesterday I saw a lion kiss a deer" },
-    { time: 112, text: "Turn the page\nMaybe we'll find a brand new ending" },
-    { time: 118, text: "Where we're dancing in our tears" },
-    { time: 124, text: "And, God, tell us the reason" },
-    { time: 129, text: "Youth is wasted on the young" },
-    { time: 134, text: "It's hunting season and this lamb's on the run" },
-    { time: 140, text: "Searching for meaning" },
-    { time: 145, text: "But are we all lost stars\nTrying to light up the dark?" },
-];
+const lyricsDiv = document.getElementById('lyrics');
 
 let playing = false;
-let currentLyricIndex = -1; // 현재 가사의 인덱스
+
+const lyricsData = [
+    { time: 11.5, text: "Please, don't see" },
+    { time: 16.5, text: "Just a boy caught up in dreams and fantasies" },
+    { time: 23.5, text: "Please, see me" },
+    { time: 28.5, text: "Reaching out for someone I can't see" },
+    { time: 33.5, text: "Take my hand\nLet's see where we wake up tomorrow" },
+    { time: 39.5, text: "Best laid plans\nSometimes are just a one night stand" },
+    { time: 45.5, text: "I'll be damned\nCupid's demanding back his arrow" },
+    { time: 51.5, text: "So let's get drunk on our tears" },
+    { time: 58.5, text: "And, God, tell us the reason" },
+    { time: 62.5, text: "Youth is wasted on the young" },
+    { time: 66.5, text: "It's hunting season and the lambs are on the run" },
+    { time: 72.5, text: "Searching for meaning" },
+    { time: 75.5, text: "But are we all lost stars" },
+    { time: 81.5, text: "Trying to light up the dark?" },
+    { time: 87.5, text: "Who are we?" },
+    { time: 93.5, text: "Just a speck of dust within the galaxy" },
+    { time: 99.5, text: "Woe is me" },
+    { time: 104.5, text: "If we're not careful turns into reality" },
+    { time: 109.5, text: "Don't you dare let our best memories bring you sorrow" },
+    { time: 115.5, text: "Yesterday I saw a lion kiss a deer" },
+    { time: 121.5, text: "Turn the page\nMaybe we'll find a brand new ending" },
+    { time: 128.5, text: "Where we're dancing in our tears" },
+    { time: 134.5, text: "And, God, tell us the reason" },
+    { time: 138.5, text: "Youth is wasted on the young" },
+    { time: 142.5, text: "It's hunting season" },
+    { time: 144.5, text: "And the lambs are on the run" },
+    { time: 148.5, text: "Searching for meaning" },
+    { time: 152.5, text: "But are we all lost stars" },
+    { time: 157.5, text: "Trying to light up the dark?" },
+    { time: 163.5, text: "And I thought I saw you out there crying" },
+    { time: 169.5, text: "And I thought I heard you call my name" },
+    { time: 175.5, text: "And I thought I heard you out there crying" },
+    { time: 180.5, text: "Just the same" },
+    { time: 183.5, text: "Oh yeah, yeah yeah yeah yeah" },
+    { time: 187.5, text: "God, give us the reason" },
+    { time: 191.5, text: "Youth is wasted on the young" },
+    { time: 195.5, text: "It's hunting season and this lamb is on the run" },
+    { time: 200.5, text: "Searching for meaning" },
+    { time: 205.5, text: "But are we all lost stars" },
+    { time: 211.5, text: "Trying to light up the dark?" },
+    { time: 217.5, text: "And I thought I saw you out there crying" },
+    { time: 222.5, text: "And I thought I heard you call my name" },
+    { time: 228.5, text: "And I thought I heard you out there crying" },
+    { time: 233.5, text: "But are we all lost stars" },
+    { time: 239.5, text: "Trying to light up the dark?" },
+    { time: 245.5, text: "But are we all lost stars" },
+    { time: 250.5, text: "Trying to light up the dark?" }
+];
 
 audio.addEventListener('loadedmetadata', () => {
     durationTime.textContent = formatTime(audio.duration);
@@ -46,8 +66,8 @@ audio.addEventListener('timeupdate', () => {
     const current = audio.currentTime;
     progress.style.width = (current / audio.duration) * 100 + '%';
     currentTime.textContent = formatTime(current);
-    updateLyrics(current);
-    updateRemainingTime(); // 남은 시간 업데이트
+    updateRemainingTime();
+    displayLyrics(current);
 });
 
 playButton.addEventListener('click', () => {
@@ -87,33 +107,25 @@ function formatTime(seconds) {
     return `${minutes}:${secs < 10 ? '0' + secs : secs}`;
 }
 
-function updateLyrics(currentTime) {
-    const index = lyrics.findIndex(line => currentTime >= line.time);
-    if (index !== currentLyricIndex && index >= 0) {
-        currentLyricIndex = index; // 현재 가사 인덱스 업데이트
-        lyricsContainer.innerHTML = ''; // 기존 가사 지우기
-
-        // 새로운 가사 라인 생성
-        const lyricLine = document.createElement('div');
-        lyricLine.innerText = lyrics[index].text;
-        lyricLine.style.opacity = '0'; // 초기 투명도 설정
-        lyricsContainer.appendChild(lyricLine);
-        
-        // 디졸브 효과 추가
-        setTimeout(() => {
-            lyricLine.style.transition = 'opacity 1s ease';
-            lyricLine.style.opacity = '1'; // 가사를 보이게 설정
-        }, 100); // 약간의 지연 후 디졸브 시작
-
-        // 이전 가사 지우기
-        setTimeout(() => {
-            lyricsContainer.innerHTML = ''; // 가사를 모두 지운 후
-        }, 2000); // 2초 후에 이전 가사를 지움 (디졸브 효과 지속 시간에 따라 조절)
-    }
-}
-
-// 남은 시간을 업데이트하는
 function updateRemainingTime() {
     const remaining = audio.duration - audio.currentTime;
     durationTime.textContent = formatTime(remaining);
+}
+
+function displayLyrics(currentTime) {
+    let currentLyric = null;
+    for (let i = 0; i < lyricsData.length; i++) {
+        const lyric = lyricsData[i];
+        const nextLyricTime = lyricsData[i + 1] ? lyricsData[i + 1].time : audio.duration;
+        
+        if (currentTime >= lyric.time && currentTime < nextLyricTime) {
+            currentLyric = lyric.text;
+            break;
+        }
+    }
+    
+    if (currentLyric && lyricsDiv.innerHTML !== currentLyric) {
+        lyricsDiv.innerHTML = currentLyric;
+        lyricsDiv.style.display = 'block'; 
+    }
 }
