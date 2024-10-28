@@ -10,7 +10,7 @@ html, body {
     overflow: hidden;
 }
 
-.background img {
+.background img, #background-video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,6 +21,16 @@ html, body {
     z-index: 0;
 }
 
+.background img {
+    opacity: 1; 
+    transition: opacity 1s ease; 
+}
+
+#background-video {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
 .koala {
     position: absolute;
     bottom: 0;
@@ -28,8 +38,17 @@ html, body {
     transform: translateX(-50%);
     width: 60%;
     height: auto;
-    object-fit: cover;
     z-index: 2;
+}
+
+.koala_nose {
+    position: absolute;
+    bottom: 67px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7%;
+    cursor: pointer;
+    z-index: 3;
 }
 
 h1 {
@@ -40,18 +59,17 @@ h1 {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1; 
-    margin: 0; 
-    padding-top: 0; 
+    z-index: 1;
+    margin: 0;
 }
 
 .home-button {
-    position: absolute;
+    position: fixed;
     top: 15px;
-    right: 10px;
+    right: 15px;
     width: 50px;
     height: 50px;
-    z-index: 3;
+    z-index: 4;
 }
 
 .home-button img {
