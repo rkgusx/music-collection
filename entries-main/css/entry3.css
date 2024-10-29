@@ -1,11 +1,11 @@
 body {
     margin: 0;
-    position: relative;
-    height: auto;
-    overflow: auto;
+    min-height: 100vh; /* 화면 전체 높이 설정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: radial-gradient(circle, #FFB855 0%, #28050C 100%);
 }
-
 .home-button {
     position: fixed;
     top: 15px;
@@ -28,7 +28,7 @@ body {
 
 .takoyaki-pan {
     position: absolute;
-    top: 100px; 
+    top: 160px; 
     left: 0;
     width: 100%; 
     height: 100%;
@@ -45,13 +45,14 @@ body {
 .takoyaki-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr); /* 행 수를 조정하여 높이 줄이기 */
     gap: 1px;
     max-width: 758px;
-    margin: 20px auto; 
-    position: relative; 
-    z-index: 2; 
-    top: 221px;
+    margin: 0 auto;
+    padding-bottom: 0; /* 하단 여백 제거 */
+    position: relative;
+    z-index: 2;
+    top: 65px; /* 필요한 위치에 배치 */
 }
 
 .takoyaki-grid {
@@ -66,6 +67,7 @@ body {
     object-fit: cover; 
     margin: auto;
     display: block; 
+    transition: opacity 0.3s ease;
 }
 
 .lights {
@@ -73,9 +75,11 @@ body {
     left: 50%; 
     transform: translateX(-50%); 
     text-align: center;
+    top: 40px;
 }
 
 .lights img {
     display: block; 
     margin: 0 auto; 
+    width: 1450px;
 }
