@@ -45,14 +45,14 @@ body {
 .takoyaki-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr); /* 행 수를 조정하여 높이 줄이기 */
+    grid-template-rows: repeat(4, 1fr);
     gap: 1px;
     max-width: 758px;
     margin: 0 auto;
-    padding-bottom: 0; /* 하단 여백 제거 */
+    padding-bottom: 0;
     position: relative;
     z-index: 2;
-    top: 65px; /* 필요한 위치에 배치 */
+    top: 65px;
 }
 
 .takoyaki-grid {
