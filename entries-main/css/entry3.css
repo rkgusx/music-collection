@@ -59,6 +59,8 @@ body {
     overflow: hidden; 
     justify-content: center; 
     align-items: center; 
+            overflow: hidden; /* 이미지를 잘라내어 겹치기 효과 유지 */
+
 }
 
 .takoyaki-grid img {
@@ -83,3 +85,5 @@ body {
     margin: 0 auto; 
     width: 1450px;
 }
+
+
