@@ -6,13 +6,15 @@ body {
     justify-content: space-between;
     background: radial-gradient(circle, #FFB855 0%, #28050C 100%);
 }
+
 .home-button {
     position: fixed;
-    top: 15px;
-    right: 10px;
+    top: 15px; /* 페이지 상단에 고정 */
+    right: 10px; /* 페이지 오른쪽에 고정 */
     width: 50px;
     height: 50px;
     z-index: 3;
+    pointer-events: auto; /* 클릭 가능하도록 설정 */
 }
 
 .home-button img {
@@ -25,6 +27,7 @@ body {
 .home-button:hover img {
     transform: scale(1.1);
 }
+
 
 .takoyaki-pan {
     position: absolute;
@@ -59,7 +62,7 @@ body {
     overflow: hidden; 
     justify-content: center; 
     align-items: center; 
-            overflow: hidden; /* 이미지를 잘라내어 겹치기 효과 유지 */
+            overflow: hidden;
 
 }
 

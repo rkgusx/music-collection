@@ -4,12 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/entry5.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="home">
+  <div class="home">
     <a href="../index.html" class="home-button">
-        <img src="../images/home-icon-white.png" alt="Home Button">
-    </a></div>
-    <img src="../images/pixel-bg.jpg" alt="pixel-bg"> 
+      <img src="../images/home-icon-white.png" alt="Home Button">
+    </a>
+  </div>
+  <div class="audio-player-container">
+    <h1>On the Snow - EXO</h1>
+    <div class="audio-player">
+      <audio id="OntheSnowAudio" loop>
+        <source src="../songs/OntheSnow-EXO.mp3" type="audio/mpeg">
+      </audio>      
+      <div class="progress-bar" id="progressBar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="time-container">
+        <span id="currentTime">0:00</span>
+        <span id="durationTime">0:00</span>
+      </div>
+      <button class="play-button" id="playButton"></button>
+    </div>
+  </div>
+  <img class="pixel-bg" src="../images/pixel-bg.jpg" alt="Pixel Background">
+  <canvas id="snowCanvas"></canvas>
+  
+  <!-- 캐릭터 추가 -->
+  <div id="character-container">
+    <img id="character" src="../images/character-standing.gif" alt="Character">
+  </div>
+  
+  <script src="./js/entry5.js"></script>
 </body>
-</html
+</html>

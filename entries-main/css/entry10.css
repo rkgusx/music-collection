@@ -1,0 +1,91 @@
+.home-button {
+    position: fixed;
+    top: 15px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 3;
+}
+
+.home-button img {
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.home-button:hover img {
+    transform: scale(1.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.cinema-tape {
+    width: 1550px;
+    height: 400px;
+    overflow: hidden;
+    position: absolute;
+    cursor: grab;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cinema-tape-1 {
+    transform: rotate(-5deg);
+    z-index: 0;
+    top: 400px;
+}
+
+#cinema-tape-2 {
+    transform: rotate(5deg);
+    z-index: 1;
+    top: 10px;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%; 
+}
+
+.image-wrapper img {
+    width: calc(100% / 3);
+    height: 80%;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.cinema-tape:active {
+    cursor: grabbing;
+}
+
