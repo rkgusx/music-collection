@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    min-height: 100vh; /* 화면 전체 높이 설정 */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -9,12 +9,12 @@ body {
 
 .home-button {
     position: fixed;
-    top: 15px; /* 페이지 상단에 고정 */
-    right: 10px; /* 페이지 오른쪽에 고정 */
+    top: 15px;
+    right: 10px;
     width: 50px;
     height: 50px;
     z-index: 3;
-    pointer-events: auto; /* 클릭 가능하도록 설정 */
+    pointer-events: auto;
 }
 
 .home-button img {
