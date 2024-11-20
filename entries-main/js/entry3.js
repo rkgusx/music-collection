@@ -26,3 +26,6 @@ window.addEventListener('load', function () {
         requestAnimationFrame(scrollAnimation);
     }, 800);
 });
+
+
+
