@@ -1,64 +1,86 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const cameraImg = document.querySelector(".camera");
+    const cameraImg = document.querySelector(".DigitalCamera img");
     const clickLeft = document.querySelector(".click-left");
     const clickRight = document.querySelector(".click-right");
-    const cameraDiv = document.querySelector(".DigitalCamera");
-    const imagePaths = [
-        "../images/Boston1.jpg",
-        "../images/Boston2.jpg",
-        "../images/Boston3.jpg",
-        "../images/Boston4.jpg",
-        "../images/Boston5.jpg",
-        "../images/Boston6.jpg",
-        "../images/Boston7.jpg",
-        "../images/Boston8.jpg"
-    ];
+    const photos = document.querySelectorAll(".DigitalCamera .photo");
+    const photoContainer = document.querySelector(".photo-container");
+    const darkOverlay = document.querySelector(".dark-overlay");  // dark-overlay 선택자
 
     let currentImageIndex = 0;
     let isAtCenter = false;
 
     const updateImage = () => {
-        // 배경 이미지 변경
-        cameraDiv.style.backgroundImage = `url(${imagePaths[currentImageIndex]})`;
+        photos.forEach((photo, index) => {
+            photo.classList.toggle("active", index === currentImageIndex);
+        });
     };
 
-    // 카메라를 클릭하면 카메라가 중앙으로 이동하고 버튼이 활성화
+    cameraImg.style.transition = "none";
+    cameraImg.style.bottom = "-400px"; 
+    photoContainer.style.transition = "none"; 
+    photoContainer.style.transform = "translateY(100%)"; 
+
+    const hideButtons = () => {
+        clickLeft.classList.remove("show");
+        clickRight.classList.remove("show");
+    };
+
+    const showButtons = () => {
+        clickLeft.classList.add("show");
+        clickRight.classList.add("show");
+    };
+
     cameraImg.addEventListener("click", () => {
         if (!isAtCenter) {
-            cameraImg.style.bottom = "250px";
-            cameraImg.style.transform = "translate(-50%, 50%)";
-            clickLeft.classList.add("active");
-            clickRight.classList.add("active");
+            cameraImg.style.transition = "bottom 0.5s ease";
+            cameraImg.style.bottom = "0px"; 
+
+            photoContainer.style.transition = "transform 0.4s ease";
+            photoContainer.style.transform = "translateY(-10%)"; 
+
+            showButtons();
+
+            // 배경을 어두운 색으로 변화
+            darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #f5f5f5, #525252 70%, #272727)"; 
+
             isAtCenter = true;
         } else {
-            cameraImg.style.bottom = "-500px";
-            cameraImg.style.transform = "translateX(-50%)";
-            clickLeft.classList.remove("active");
-            clickRight.classList.remove("active");
+            cameraImg.style.transition = "bottom 0.5s ease"; 
+            cameraImg.style.bottom = "-400px"; 
+
+            photoContainer.style.transition = "transform 0.4s ease"; 
+            photoContainer.style.transform = "translateY(100%)"; 
+
+            hideButtons();
+
+            // 배경을 원래 색으로 돌아가게 설정
+            darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
+
             isAtCenter = false;
         }
     });
 
-    // 왼쪽 버튼 클릭 시
     clickLeft.addEventListener("click", () => {
-        currentImageIndex = (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
+        currentImageIndex = (currentImageIndex - 1 + photos.length) % photos.length;
         updateImage();
     });
 
-    // 오른쪽 버튼 클릭 시
     clickRight.addEventListener("click", () => {
-        currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
+        currentImageIndex = (currentImageIndex + 1) % photos.length;
         updateImage();
     });
 
-    // 방향키 왼쪽/오른쪽
     document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft") {
-            currentImageIndex = (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
-            updateImage();
-        } else if (e.key === "ArrowRight") {
-            currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
-            updateImage();
+        if (isAtCenter) { 
+            if (e.key === "ArrowLeft") {
+                currentImageIndex = (currentImageIndex - 1 + photos.length) % photos.length;
+                updateImage();
+            } else if (e.key === "ArrowRight") {
+                currentImageIndex = (currentImageIndex + 1) % photos.length;
+                updateImage();
+            }
         }
     });
+
+    updateImage();
 });
