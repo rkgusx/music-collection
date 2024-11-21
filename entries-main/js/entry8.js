@@ -33,35 +33,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // 카메라와 배경 전환
     cameraImg.addEventListener("click", () => {
         if (!isAtCenter) {
-            cameraImg.style.transition = "bottom 0.5s ease";
+            cameraImg.style.transition = "bottom 0.45s ease"; // 스페이스 바와 동일한 속도
             cameraImg.style.bottom = "0px"; 
-
-            photoContainer.style.transition = "transform 1s ease";
+    
+            photoContainer.style.transition = "transform 0.45s ease"; // 스페이스 바와 동일한 속도
             photoContainer.style.transform = "translateY(-10%)"; 
-
+    
             showButtons();
-
+    
             // 배경을 어두운 색으로 변화
-            darkOverlay.style.transition = "background 0.7s ease";
+            darkOverlay.style.transition = "background 5s ease";
             darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #f0f0f0, #b6b6b6 70%, #717171)"; 
-
+    
             isAtCenter = true;
         } else {
             cameraImg.style.transition = "bottom 0.5s ease"; 
             cameraImg.style.bottom = "-400px"; 
-
-            photoContainer.style.transition = "transform 3s ease"; 
+    
+            photoContainer.style.transition = "transform 0.5s ease"; 
             photoContainer.style.transform = "translateY(100%)"; 
-
+    
             hideButtons();
-
+    
             // 배경을 원래 색으로 돌아가게 설정
-            darkOverlay.style.transition = "background 0.7s ease";  
+            darkOverlay.style.transition = "background 3s ease";  
             darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
-
+    
             isAtCenter = false;
         }
     });
+    
 
     clickLeft.addEventListener("click", () => {
         currentImageIndex = (currentImageIndex - 1 + photos.length) % photos.length;
@@ -94,16 +95,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 카메라와 배경 전환
             if (!isAtCenter) {
-                cameraImg.style.transition = "bottom 0.5s ease";
+                cameraImg.style.transition = "bottom 0.45s ease";
                 cameraImg.style.bottom = "0px"; 
 
-                photoContainer.style.transition = "transform 0.4s ease";
+                photoContainer.style.transition = "transform 0.45s ease";
                 photoContainer.style.transform = "translateY(-10%)"; 
 
                 showButtons();
 
                 // 배경을 어두운 색으로 변화
-                darkOverlay.style.transition = "background 3s ease";
+                darkOverlay.style.transition = "background 5s ease";
                 darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #f0f0f0, #b6b6b6 70%, #717171)"; 
 
                 isAtCenter = true;
@@ -111,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cameraImg.style.transition = "bottom 0.5s ease"; 
                 cameraImg.style.bottom = "-400px"; 
 
-                photoContainer.style.transition = "transform 0.4s ease"; 
+                photoContainer.style.transition = "transform 0.5s ease"; 
                 photoContainer.style.transform = "translateY(100%)"; 
 
                 hideButtons();
