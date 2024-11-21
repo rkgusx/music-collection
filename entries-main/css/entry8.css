@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     background: radial-gradient(circle at 50% 50%, #f5f5f5, #d9d9d9 70%, #c0c0c0);
-    position: relative; /* 어두운 레이어가 부모 요소에 배치되도록 설정 */
+    position: relative;
 }
 
 .dark-overlay {
@@ -16,17 +16,15 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0); /* 기본 배경은 투명 */
-    z-index: -100; /* 카메라 및 다른 요소들 위에 표시되도록 설정 */
-    transition: 0.7s ease; /* 배경 어두워지는 효과 */
-    pointer-events: none; /* 클릭 이벤트가 이 레이어에 영향을 미치지 않도록 */
+    background: rgba(0, 0, 0, 0);
+    z-index: -100;
+    transition:  3s ease;
+    pointer-events: none;
 }
 
-/* 어두운 배경을 활성화하는 darkened 클래스 */
 body.darkened .dark-overlay {
-    background: radial-gradient(circle at 50% 50%, #f5f5f5, #525252 70%, #272727);
+    background: radial-gradient(circle at 50% 50%, #f0f0f0, #b6b6b6 70%, #717171);
 }
-
 
 .DigitalCamera {
     position: relative;
@@ -127,4 +125,82 @@ body.darkened .dark-overlay {
 
 .home-button:hover img {
     transform: scale(1.1);
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 0.9rem;
+    margin: 0;
+    margin-top: 10px;
+    color: #3a3a3a;
+    z-index: 3;
+    position: relative;
+    text-align: center;
+}
+
+.audio-player-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 10px;
+}
+
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #828282;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    width: 0; 
+}
+
+.play-button {
+    background: transparent; 
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-button:before {
+    content: '▶';
+    font-size: 20px;
+    color: #3a3a3a;
+    transition: transform 0.2s;
+}
+
+.play-button.playing:before {
+    content: '⏸';
+    font-size: 28px;
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    font-size: 0.7rem;
+    color: #3a3a3a;
+    margin-top: 5px;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
 }
