@@ -9,16 +9,50 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentImageIndex = 0;
     let isAtCenter = false;
 
+    // 초기 상태 설정
+    cameraImg.style.transition = "none";
+    cameraImg.style.bottom = "-400px"; 
+    photoContainer.style.transition = "none"; 
+    photoContainer.style.transform = "translateY(100%)"; 
+    darkOverlay.style.transition = "none";
+    darkOverlay.style.background = "rgba(0, 0, 0, 0)";
+    darkOverlay.style.opacity = "0";
+
+    setTimeout(() => {
+        cameraImg.style.transition = "bottom 0.45s ease";
+        photoContainer.style.transition = "transform 0.45s ease";
+        darkOverlay.style.transition = "background 1s ease, opacity 1s ease";
+    }, 50);
+
     const updateImage = () => {
         photos.forEach((photo, index) => {
             photo.classList.toggle("active", index === currentImageIndex);
         });
     };
 
-    cameraImg.style.transition = "none";
-    cameraImg.style.bottom = "-400px"; 
-    photoContainer.style.transition = "none"; 
-    photoContainer.style.transform = "translateY(100%)"; 
+    const toggleCameraPosition = () => {
+        if (!isAtCenter) {
+            cameraImg.style.bottom = "0px"; 
+            photoContainer.style.transform = "translateY(-10%)"; 
+            showButtons();
+
+            // 배경 어두운 색으로
+            darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #c8c8c8, #8a8a8a 70%, #404040)";
+            darkOverlay.style.opacity = "1"; 
+
+            isAtCenter = true;
+        } else {
+            cameraImg.style.bottom = "-400px"; 
+            photoContainer.style.transform = "translateY(100%)"; 
+            hideButtons();
+
+            // 배경 원래 색
+            darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
+            darkOverlay.style.opacity = "0"; 
+
+            isAtCenter = false;
+        }
+    };
 
     const hideButtons = () => {
         clickLeft.classList.remove("show");
@@ -30,39 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
         clickRight.classList.add("show");
     };
 
-    // 카메라와 배경 전환
-    cameraImg.addEventListener("click", () => {
-        if (!isAtCenter) {
-            cameraImg.style.transition = "bottom 0.45s ease"; // 스페이스 바와 동일한 속도
-            cameraImg.style.bottom = "0px"; 
-    
-            photoContainer.style.transition = "transform 0.45s ease"; // 스페이스 바와 동일한 속도
-            photoContainer.style.transform = "translateY(-10%)"; 
-    
-            showButtons();
-    
-            // 배경을 어두운 색으로 변화
-            darkOverlay.style.transition = "background 5s ease";
-            darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #f0f0f0, #b6b6b6 70%, #717171)"; 
-    
-            isAtCenter = true;
-        } else {
-            cameraImg.style.transition = "bottom 0.5s ease"; 
-            cameraImg.style.bottom = "-400px"; 
-    
-            photoContainer.style.transition = "transform 0.5s ease"; 
-            photoContainer.style.transform = "translateY(100%)"; 
-    
-            hideButtons();
-    
-            // 배경을 원래 색으로 돌아가게 설정
-            darkOverlay.style.transition = "background 3s ease";  
-            darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
-    
-            isAtCenter = false;
+    cameraImg.addEventListener("click", toggleCameraPosition);
+
+    document.addEventListener("keydown", (e) => {
+        if (e.code === 'Space') {
+            e.preventDefault();
+            togglePlay();
+            toggleCameraPosition();
         }
     });
-    
 
     clickLeft.addEventListener("click", () => {
         currentImageIndex = (currentImageIndex - 1 + photos.length) % photos.length;
@@ -74,61 +84,21 @@ document.addEventListener("DOMContentLoaded", () => {
         updateImage();
     });
 
-    // 방향키 이벤트
     document.addEventListener("keydown", (e) => {
-        if (isAtCenter) { 
+        if (isAtCenter) {
             if (e.key === "ArrowLeft") {
-                clickLeft.click();  // 방향키 왼쪽 눌렀을 때 click-left 클릭
+                clickLeft.click();
             } else if (e.key === "ArrowRight") {
-                clickRight.click();  // 방향키 오른쪽 눌렀을 때 click-right 클릭
+                clickRight.click();
             }
         }
     });
-
-    // 스페이스바 이벤트 (노래 재생/멈춤 + 카메라/배경 전환)
-    document.addEventListener("keydown", (e) => {
-        if (e.code === 'Space') {
-            e.preventDefault(); // 기본 동작 방지
-
-            // 노래 재생/멈춤
-            togglePlay();
-
-            // 카메라와 배경 전환
-            if (!isAtCenter) {
-                cameraImg.style.transition = "bottom 0.45s ease";
-                cameraImg.style.bottom = "0px"; 
-
-                photoContainer.style.transition = "transform 0.45s ease";
-                photoContainer.style.transform = "translateY(-10%)"; 
-
-                showButtons();
-
-                // 배경을 어두운 색으로 변화
-                darkOverlay.style.transition = "background 5s ease";
-                darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #f0f0f0, #b6b6b6 70%, #717171)"; 
-
-                isAtCenter = true;
-            } else {
-                cameraImg.style.transition = "bottom 0.5s ease"; 
-                cameraImg.style.bottom = "-400px"; 
-
-                photoContainer.style.transition = "transform 0.5s ease"; 
-                photoContainer.style.transform = "translateY(100%)"; 
-
-                hideButtons();
-
-                // 배경을 원래 색으로 돌아가게 설정
-                darkOverlay.style.transition = "background 3s ease";  
-                darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
-
-                isAtCenter = false;
-            }
-        }
-    });
-
+    
     updateImage();
+});
 
-    // 오디오 플레이어 관련 코드
+
+    // Audio Player
     const audio = document.getElementById('PhotographEdsheeran');
     const playButton = document.getElementById('playButton');
     const progressBar = document.getElementById('progressBar');
@@ -180,4 +150,3 @@ document.addEventListener("DOMContentLoaded", () => {
         const secs = Math.floor(seconds % 60);
         return `${minutes}:${secs < 10 ? '0' + secs : secs}`;
     }
-});

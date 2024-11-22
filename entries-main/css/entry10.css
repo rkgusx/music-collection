@@ -30,8 +30,8 @@ body {
     color: white;
     text-align: center;
     padding: 50px;
-    overflow-x: hidden; /* 좌우 스크롤 막기 */
-    overflow-y: auto; /* 세로 스크롤 허용 */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .container {
@@ -42,12 +42,12 @@ body {
 }
 
 .cinema-tape {
-    width: 1550px; /* 전체 너비 */
+    width: 1550px;
     height: 400px;
-    overflow: hidden; /* 넘치는 이미지를 가림 */
+    overflow: hidden;
     position: absolute;
     cursor: grab;
-    background-color: #000000;
+    background-color: #181818;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -56,13 +56,13 @@ body {
 }
 
 #cinema-tape-1 {
-    transform: rotate(-5deg); /* 대각선으로 기울임 */
+    transform: rotate(-5deg);
     z-index: 0;
     top: 400px;
 }
 
 #cinema-tape-2 {
-    transform: rotate(5deg); /* 대각선으로 기울임 */
+    transform: rotate(5deg);
     z-index: 1;
     top: 10px;
 }
@@ -77,10 +77,10 @@ body {
 }
 
 .image-wrapper img {
-    width:  calc(100% / 3); /* 한 번에 3개의 이미지만 보이도록 설정 */
+    width:  calc(100% / 3);
     height: 100%;
     object-fit: cover;
-    margin-right: 10px; /* 이미지 간 간격 */
+    margin-right: 10px;
     border-radius: 10px;
 }
 

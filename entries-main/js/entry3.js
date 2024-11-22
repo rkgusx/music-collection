@@ -1,6 +1,29 @@
 window.addEventListener('load', function () {
-    setTimeout(function () {
+    const audio = document.getElementById('background-audio');
+    let hasPlayed = false;
 
+    const flipContainers = document.querySelectorAll('.flip-container');
+    flipContainers.forEach((flipContainer) => {
+        flipContainer.addEventListener('click', function () {
+            if (!hasPlayed) {
+                audio.play();
+                hasPlayed = true;
+            }
+        });
+    });
+
+    window.addEventListener('keydown', function (event) {
+        if (event.key === ' ') {
+            event.preventDefault()
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    });
+
+    setTimeout(function () {
         const start = window.scrollY;
         const end = 100;
         const duration = 1000;
@@ -18,7 +41,6 @@ window.addEventListener('load', function () {
             if (progress < 1) {
                 requestAnimationFrame(scrollAnimation);
             } else {
-
                 document.body.style.overflow = 'hidden';
             }
         }
@@ -26,6 +48,3 @@ window.addEventListener('load', function () {
         requestAnimationFrame(scrollAnimation);
     }, 800);
 });
-
-
-
