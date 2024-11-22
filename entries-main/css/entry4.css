@@ -59,7 +59,7 @@ body {
 }
 
 h1 {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Calligraffitti', cursive;
     font-size: 0.9rem;
     margin: 0;
     margin-top: 10px;
@@ -105,10 +105,10 @@ h1 {
     display: flex;
     justify-content: space-between;
     width: 100%; 
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #573d2c;
     margin-top: 5px;
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Calligraffitti', cursive;   
     font-weight: bold;
 }
 
@@ -151,5 +151,36 @@ h1 {
     }
     100% {
         transform: translateY(0);
+    }
+}
+
+.arrow {
+    position: absolute;
+    bottom: 190px;
+    left: 77%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: auto;
+    z-index: 3;
+    animation: float-together 2s infinite ease-in-out; /* 동일 애니메이션 */
+}
+
+h2 {
+    font-family: 'Calligraffitti', cursive;
+    color: #573d2c;
+    position: fixed;
+    top: 52%;
+    left: 76%;
+    z-index: 2;
+    animation: float-together 2s infinite ease-in-out; /* 동일 애니메이션 */
+}
+
+/* 동일하게 위아래로 움직이는 애니메이션 */
+@keyframes float-together {
+    0%, 100% {
+        transform: translateY(0); /* 원래 위치 */
+    }
+    50% {
+        transform: translateY(-10px); /* 위로 이동 */
     }
 }
