@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         cameraImg.style.transition = "bottom 0.45s ease";
         photoContainer.style.transition = "transform 0.45s ease";
-        darkOverlay.style.transition = "background 1s ease, opacity 1s ease";
+        darkOverlay.style.transition = "background 1s ease, opacity 1.5s ease";
     }, 50);
 
     const updateImage = () => {
@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             photoContainer.style.transform = "translateY(100%)"; 
             hideButtons();
     
+            // 배경 원래 색으로 천천히 돌아가게 설정
             darkOverlay.style.transition = "background 2s ease, opacity 2s ease";
             darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
             darkOverlay.style.opacity = "0"; 
