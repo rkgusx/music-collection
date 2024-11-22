@@ -9,22 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressBar = document.getElementById("progressBar");
     const musicNoteContainer = document.querySelector(".music-note-container");
     let isPlayingBell = false;
-    let isPizzaOpen = false; // 피자 상태 추적 변수
-    let isSongPlaying = false; // 노래가 재생 중인지 여부 추적
+    let isPizzaOpen = false;
+    let isSongPlaying = false;
 
     bellImg.addEventListener("click", () => {
         if (!isPlayingBell) {
-            // BellSoundEffect.mp3 재생
             bellSound.play();
-            isPlayingBell = true; // 벨이 클릭되었음을 표시
+            isPlayingBell = true;
 
-            // 피자 상태 변경 (열기 / 닫기)
+            // 피자 열기 및 닫기
             if (!isPizzaOpen) {
                 pizzaClosedImg.src = "../images/pizza-open.png";
                 isPizzaOpen = true;
                 if (!isSongPlaying) {
                     rideSoleSound.play(); // 피자 열 때 Ride-Sole.mp3 실행
-                    isSongPlaying = true; // 노래가 재생 중이라고 표시
+                    isSongPlaying = true;
                 }
                 // 피자 열리고 종 클릭되면 뮤직 노트 표시
                 musicNoteContainer.style.display = "flex"; 
@@ -32,24 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 pizzaClosedImg.src = "../images/pizza-closed.png";
                 isPizzaOpen = false;
                 rideSoleSound.pause(); // 피자 닫을 때 Ride-Sole.mp3 일시 정지
-                isSongPlaying = false; // 노래가 멈췄다고 표시
+                isSongPlaying = false;
                 // 피자 닫히면 뮤직 노트 숨기기
                 musicNoteContainer.style.display = "none"; 
             }
         }
     });
 
-    // BellSoundEffect.mp3 음성이 끝났을 때, 다시 클릭할 수 있도록 isPlayingBell을 false로 설정
     bellSound.addEventListener("ended", () => {
         isPlayingBell = false;
     });
 
-    // Ride-Sole.mp3의 시간 업데이트 (progress bar, currentTime, durationTime)
+    // Ride-Sole.mp3의 시간
     rideSoleSound.addEventListener("timeupdate", () => {
         const current = rideSoleSound.currentTime;
         const remaining = rideSoleSound.duration - current;
 
-        // Progress bar 업데이트
+        // Progress bar
         progress.style.width = (current / rideSoleSound.duration) * 100 + '%';
         currentTime.textContent = formatTime(current);
         durationTime.textContent = formatTime(remaining);

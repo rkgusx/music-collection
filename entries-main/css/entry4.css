@@ -113,18 +113,18 @@ h1 {
 }
 
 .music-note-container {
-    position: fixed; /* 화면에 고정 */
-    top: 50%; /* 화면의 중앙에 위치 */
-    left: 50%; /* 화면의 중앙에 위치 */
-    transform: translate(-50%, -50%) rotate(2deg); /* 화면 중앙에 정렬되고 살짝 회전 */
-    display: none; /* 초기에는 숨김 */
-    z-index: 2; /* 다른 요소 위에 표시되도록 */
-    transition: transform 0.5s ease-in-out; /* 부드럽게 회전하도록 애니메이션 추가 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(2deg);
+    display: none;
+    z-index: 2;
+    transition: transform 0.5s ease-in-out;
 }
 
 .music-note {
     position: fixed;
-    width: 40px; /* 사이즈를 줄임 */
+    width: 40px;
     height: auto;
     animation: bounce 2s infinite;
 }
@@ -144,12 +144,12 @@ h1 {
 
 @keyframes bounce {
     0% {
-        transform: translateY(0); /* 원래 위치 */
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px); /* 위로 올라감 */
+        transform: translateY(-10px);
     }
     100% {
-        transform: translateY(0); /* 원래 위치로 돌아옴 */
+        transform: translateY(0);
     }
 }
