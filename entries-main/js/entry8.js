@@ -66,7 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
         clickRight.classList.add("show");
     };
 
-    cameraImg.addEventListener("click", toggleCameraPosition);
+    cameraImg.addEventListener("click", () => {
+        toggleCameraPosition(); 
+        togglePlay();     
+    });
 
     document.addEventListener("keydown", (e) => {
         if (e.code === 'Space') {
@@ -98,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     updateImage();
 });
-
 
     // Audio Player
     const audio = document.getElementById('PhotographEdsheeran');
