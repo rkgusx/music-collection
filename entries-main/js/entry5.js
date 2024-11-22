@@ -82,13 +82,15 @@ function jumpAnimation() {
 }
 
 // 오디오 및 재생 컨트롤
-const audio = document.getElementById('OntheSnowAudio');
+const audio = document.getElementById('GoodNight');
 const playButton = document.getElementById('playButton');
 const progressBar = document.getElementById('progressBar');
 const progress = document.getElementById('progress');
 const currentTime = document.getElementById('currentTime');
 const durationTime = document.getElementById('durationTime');
 let playing = false;
+
+audio.volume = 0.7;
 
 audio.addEventListener('loadedmetadata', () => {
     durationTime.textContent = formatTime(audio.duration);

@@ -35,24 +35,25 @@ document.addEventListener("DOMContentLoaded", () => {
             cameraImg.style.bottom = "0px"; 
             photoContainer.style.transform = "translateY(-10%)"; 
             showButtons();
-
+    
             // 배경 어두운 색으로
             darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #c8c8c8, #8a8a8a 70%, #404040)";
             darkOverlay.style.opacity = "1"; 
-
+    
             isAtCenter = true;
         } else {
             cameraImg.style.bottom = "-400px"; 
             photoContainer.style.transform = "translateY(100%)"; 
             hideButtons();
-
-            // 배경 원래 색
+    
+            darkOverlay.style.transition = "background 2s ease, opacity 2s ease";
             darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
             darkOverlay.style.opacity = "0"; 
-
+    
             isAtCenter = false;
         }
     };
+    
 
     const hideButtons = () => {
         clickLeft.classList.remove("show");

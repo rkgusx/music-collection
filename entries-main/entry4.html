@@ -7,9 +7,37 @@
 </head>
 <body>
     <div class="home">
-    <a href="../index.html" class="home-button">
-        <img src="../images/home-icon-white.png" alt="Home Button">
-    </a></div>
+        <a href="../index.html" class="home-button">
+            <img src="../images/home-icon-brown.png" alt="Home Button">
+        </a>
+    </div>
+    <div class="audio-player-container">
+      <h1>Ride - SOLE</h1>
+      <div class="audio-player">
+        <audio id="RideAudio" loop>
+          <source src="../songs/Ride-Sole.mp3" type="audio/mpeg">
+        </audio>      
+        <div class="progress-bar" id="progressBar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="time-container">
+          <span id="currentTime">0:00</span>
+          <span id="durationTime">0:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="music-note-container">
+      <img src="../images/music-note-1.png" alt="Music Note" class="music-note music-note-left">
+      <img src="../images/music-note-2.png" alt="Music Note" class="music-note music-note-right">
+    </div>    
+    <div class="square-box">
+        <img src="../images/pizza-closed.png" alt="Pizza Closed" class="pizza-closed-img">
+        <img src="../images/bell.png" alt="Bell" class="bell-img">
+    </div>
+
+    <audio id="bell-sound" src="../songs/BellSoundEffect.mp3"></audio>
+    <audio id="ride-sole-sound" src="../songs/Ride-Sole.mp3"></audio> <!-- Ride-Sole.mp3 추가 -->
+
     <script src="js/entry4.js"></script>
 </body>
 </html>

@@ -4,6 +4,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0;
+    height: 100vh;
+    background-color: #fbf2ee;
+    overflow: hidden;
 }
 
 .home-button {
@@ -24,4 +28,128 @@ body {
 
 .home-button:hover img {
     transform: scale(1.1);
+}
+
+.square-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 270px;
+    background-color: #caa38f;
+    position: relative;
+}
+
+.pizza-closed-img {
+    position: absolute;
+    bottom: 10px;
+    width: 560px;
+    height: auto;
+    justify-content: center;
+    right: 440px;
+    bottom: 15px;
+}
+
+.bell-img {
+    position: absolute;
+    top: 75px;
+    right: 300px;
+    width: 100px;
+    height: auto;
+}
+
+h1 {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 0.9rem;
+    margin: 0;
+    margin-top: 10px;
+    color: #573d2c;
+    z-index: 3;
+    position: relative;
+    text-align: center;
+}
+
+.audio-player-container {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 10px;
+}
+
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #cbab97;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #573d2c;
+    border-radius: 5px;
+    width: 0; 
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    font-size: 0.8rem;
+    color: #573d2c;
+    margin-top: 5px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: bold;
+}
+
+.music-note-container {
+    position: fixed; /* 화면에 고정 */
+    top: 50%; /* 화면의 중앙에 위치 */
+    left: 50%; /* 화면의 중앙에 위치 */
+    transform: translate(-50%, -50%) rotate(2deg); /* 화면 중앙에 정렬되고 살짝 회전 */
+    display: none; /* 초기에는 숨김 */
+    z-index: 2; /* 다른 요소 위에 표시되도록 */
+    transition: transform 0.5s ease-in-out; /* 부드럽게 회전하도록 애니메이션 추가 */
+}
+
+.music-note {
+    position: fixed;
+    width: 40px; /* 사이즈를 줄임 */
+    height: auto;
+    animation: bounce 2s infinite;
+}
+
+.music-note-left {
+    right: 245px;
+    top: 120px;
+    rotate: -5deg;
+    position: fixed;
+}
+
+.music-note-right {
+    left: 240px;
+    rotate: 3deg;
+    position: fixed;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0); /* 원래 위치 */
+    }
+    50% {
+        transform: translateY(-10px); /* 위로 올라감 */
+    }
+    100% {
+        transform: translateY(0); /* 원래 위치로 돌아옴 */
+    }
 }
