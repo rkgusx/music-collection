@@ -101,3 +101,33 @@ h2 {
     bottom: 10px;
     right: 10px;
 }
+
+.arrow {
+    position: absolute;
+    top: 95px;
+    left: 54%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: auto;
+    z-index: 3;
+    animation: float-together 2s infinite ease-in-out;
+}
+
+h3 {
+    font-family: 'Calligraffitti', cursive;
+    color: #d5a643;
+    position: fixed;
+    top: 70px;
+    left: 57%;
+    z-index: 2;
+    animation: float-together 2s infinite ease-in-out; 
+}
+
+@keyframes float-together {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
