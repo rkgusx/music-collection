@@ -1,9 +1,7 @@
-/* 공통 설정 */
 .hidden {
-    display: none; /* 숨기기 */
+    display: none;
 }
 
-/* Home Button 스타일 */
 .home-button {
     position: fixed;
     top: 15px;
@@ -24,7 +22,6 @@
     transform: scale(1.1);
 }
 
-/* 크리스마스 트리 컨테이너 */
 .christmas-tree-container {
     position: relative;
     width: 330px;
@@ -34,24 +31,39 @@
 }
 
 .christmas-tree {
-    width: 100%; /* 트리 이미지는 컨테이너 크기에 맞춤 */
+    width: 100%;
     display: block;
-    position: absolute; /* 중첩된 이미지를 동일 위치에 배치 */
-    top: 0; /* 트리 시작 위치 조정 */
-    left: 0; /* 왼쪽 정렬 */
-    pointer-events: none; /* 트리 클릭 방지 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
-/* 트리 위 별 */
 .star {
     position: absolute;
-    top: -10px; /* 별을 트리 위로 이동 */
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px; /* 별 크기 */
+    width: 50px;
 }
 
-/* 초기 상태: before 상태만 표시 */
+.star-after {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    animation: float-stars 2.5s infinite ease-in-out; 
+}
+
+.star-before {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+}
+
 .star-after,
 .tree-after {
     display: none;
@@ -65,23 +77,21 @@ h2 {
     font-size: 1.2rem;
     transform: translateX(-50%);
     bottom: 12px;
-    display: none; /* 숨기기 초기 상태 */
-    opacity: 0; /* 투명도 0으로 설정 */
-    transition: opacity s ease-in-out; /* 부드럽게 나타나도록 설정 */
+    display: none;
+    opacity: 0; 
+    transition: opacity s ease-in-out;
 }
 
-/* Christmas Decorations Styles */
 .christmas-deco {
     position: fixed;
-    width: 220px; /* Adjust size as needed */
-    height: auto; /* Adjust size as needed */
-    display: none; /* Hide by default */
-    pointer-events: none; /* Prevent interactions */
-    opacity: 0; /* 투명도 초기 설정 */
-    transition: opacity 0.5s ease-in-out; /* 부드럽게 나타나도록 설정 */
+    width: 220px;
+    height: auto; 
+    display: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* Positioning decorations */
 .left-top {
     top: 10px;
     left: 10px;
@@ -129,5 +139,14 @@ h3 {
     }
     50% {
         transform: translateY(-5px);
+    }
+}
+
+@keyframes float-stars {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
     }
 }
