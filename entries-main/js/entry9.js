@@ -1,3 +1,24 @@
+let snowflakeInterval;
+
+function createSnowflakes() {
+    const container = document.getElementById('snowflakes-container');
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.textContent = '❄';
+
+    snowflake.style.left = Math.random() * 100 + 'vw';
+    snowflake.style.fontSize = Math.random() * 1 + 0.7 + 'rem';
+
+    snowflake.style.animationDuration = '8s';
+    snowflake.style.animationTimingFunction = 'linear';
+
+    container.appendChild(snowflake);
+
+    snowflake.addEventListener('animationend', () => {
+        snowflake.remove();
+    });
+}
+
 function changeImages() {
     const starBefore = document.querySelector('.star-before');
     const starAfter = document.querySelector('.star-after');
@@ -9,6 +30,8 @@ function changeImages() {
     const arrow = document.querySelector('.arrow');
     const h3 = document.querySelector('h3');
     const home = document.querySelector('.home');
+    
+    snowMusic.volume = 0.5;
 
     if (starBefore.style.display !== 'none') {
         starBefore.style.display = 'none';
@@ -31,8 +54,18 @@ function changeImages() {
         arrow.style.display = 'none';
         h3.style.display = 'none';
         home.style.display = 'none';
-    } else {
 
+        let snowflakeCount = 0;
+        snowflakeInterval = setInterval(() => {
+            if (snowflakeCount < 10) {
+                createSnowflakes();
+                snowflakeCount++;
+            } else {
+                clearInterval(snowflakeInterval);
+            }
+        }, 1000);
+
+    } else {
         starBefore.style.display = 'block';
         starAfter.style.display = 'none';
         treeBefore.style.display = 'block';
@@ -53,6 +86,11 @@ function changeImages() {
         arrow.style.display = 'block';
         h3.style.display = 'block';
         home.style.display = 'block';
+
+        const snowflakesContainer = document.getElementById('snowflakes-container');
+        snowflakesContainer.innerHTML = '';
+
+        clearInterval(snowflakeInterval);
     }
 
     if (snowMusic.paused) {
