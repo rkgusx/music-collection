@@ -1,0 +1,103 @@
+/* 공통 설정 */
+.hidden {
+    display: none; /* 숨기기 */
+}
+
+/* Home Button 스타일 */
+.home-button {
+    position: fixed;
+    top: 15px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 3;
+}
+
+.home-button img {
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.home-button:hover img {
+    transform: scale(1.1);
+}
+
+/* 크리스마스 트리 컨테이너 */
+.christmas-tree-container {
+    position: relative;
+    width: 330px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+}
+
+.christmas-tree {
+    width: 100%; /* 트리 이미지는 컨테이너 크기에 맞춤 */
+    display: block;
+    position: absolute; /* 중첩된 이미지를 동일 위치에 배치 */
+    top: 0; /* 트리 시작 위치 조정 */
+    left: 0; /* 왼쪽 정렬 */
+    pointer-events: none; /* 트리 클릭 방지 */
+}
+
+/* 트리 위 별 */
+.star {
+    position: absolute;
+    top: -10px; /* 별을 트리 위로 이동 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px; /* 별 크기 */
+}
+
+/* 초기 상태: before 상태만 표시 */
+.star-after,
+.tree-after {
+    display: none;
+}
+
+h2 {
+    font-family: 'Calligraffitti', cursive;
+    color: #cfa955;
+    position: fixed;
+    left: 50%;
+    font-size: 1.2rem;
+    transform: translateX(-50%);
+    bottom: 12px;
+    display: none; /* 숨기기 초기 상태 */
+    opacity: 0; /* 투명도 0으로 설정 */
+    transition: opacity s ease-in-out; /* 부드럽게 나타나도록 설정 */
+}
+
+/* Christmas Decorations Styles */
+.christmas-deco {
+    position: fixed;
+    width: 220px; /* Adjust size as needed */
+    height: auto; /* Adjust size as needed */
+    display: none; /* Hide by default */
+    pointer-events: none; /* Prevent interactions */
+    opacity: 0; /* 투명도 초기 설정 */
+    transition: opacity 0.5s ease-in-out; /* 부드럽게 나타나도록 설정 */
+}
+
+/* Positioning decorations */
+.left-top {
+    top: 10px;
+    left: 10px;
+}
+
+.right-top {
+    top: 10px;
+    right: 10px;
+}
+
+.left-bottom {
+    bottom: 10px;
+    left: 10px;
+}
+
+.right-bottom {
+    bottom: 10px;
+    right: 10px;
+}

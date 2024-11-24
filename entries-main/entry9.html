@@ -4,12 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/entry9.css">
+  <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Home Button -->
     <div class="home">
-    <a href="../index.html" class="home-button">
-        <img src="../images/home-icon-white.png" alt="Home Button">
-    </a></div>
+        <a href="../index.html" class="home-button">
+            <img src="../images/home-icon-white.png" alt="Home Button">
+        </a>
+    </div>
+
+    <!-- Christmas Tree and Star -->
+    <div class="christmas-tree-container">
+        <!-- Star Images -->
+        <img src="../images/star-before.png" alt="StarOnTree" class="star star-before" onclick="changeImages()">
+        <img src="../images/star-after.png" alt="StarOnTree" class="star star-after hidden" onclick="changeImages()">
+
+        <!-- Christmas Tree Images -->
+        <img src="../images/ChristmasTree-before.png" alt="ChristmasTree" class="christmas-tree tree-before">
+        <img src="../images/ChristmasTree_after.png" alt="ChristmasTree" class="christmas-tree tree-after hidden">
+    </div>
+
+    <!-- Christmas Decorations (initially hidden) -->
+    <img src="../images/ChristmasDeco-LeftTop.png" alt="Christmas Deco Left" class="christmas-deco left-top hidden">
+    <img src="../images/ChristmasDeco-RightTop.png" alt="Christmas Deco Right Top" class="christmas-deco right-top hidden">
+    <img src="../images/ChristmasDeco-LeftBottom.png" alt="Christmas Deco Left Bottom" class="christmas-deco left-bottom hidden">
+    <img src="../images/ChristmasDeco-RightBottom.png" alt="Christmas Deco Right Bottom" class="christmas-deco right-bottom hidden">
+
+    <!-- h2 element (hidden initially) -->
+    <h2 id="message" class="hidden">Merry Christmas !</h2>
+
     <script src="js/entry9.js"></script>
 </body>
 </html>

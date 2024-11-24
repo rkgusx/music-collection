@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bellImg = document.querySelector(".bell-img");
     const pizzaClosedImg = document.querySelector(".pizza-closed-img");
     const bellSound = document.getElementById("bell-sound");
-    const rideSoleSound = document.getElementById("ride-sole-sound");
+    const rideSong = document.getElementById("ride-song");  // 새로운 노래 참조
     const progress = document.getElementById("progress");
     const currentTime = document.getElementById("currentTime");
     const durationTime = document.getElementById("durationTime");
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     isPizzaOpen = true;
     
                     if (!isSongPlaying) {
-                        rideSoleSound.play(); // 피자 열 때 노래 실행
+                        rideSong.play(); // 새로 추가된 노래 실행
                         isSongPlaying = true;
                     }
     
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     pizzaClosedImg.src = "../images/pizza-closed.png";
                     isPizzaOpen = false;
     
-                    rideSoleSound.pause(); // 피자 닫을 때 노래 일시 정지
+                    rideSong.pause(); // 피자 닫을 때 노래 일시 정지
                     isSongPlaying = false;
     
                     // 피자 닫히면 뮤직 노트 숨기기
@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
         isPlayingBell = false;
     });
     
-    rideSoleSound.addEventListener("timeupdate", () => {
-        const current = rideSoleSound.currentTime;
-        const duration = rideSoleSound.duration;
+    rideSong.addEventListener("timeupdate", () => {
+        const current = rideSong.currentTime;
+        const duration = rideSong.duration;
         const remaining = duration - current;
 
         progress.style.width = (current / duration) * 100 + '%';
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rect = progressBar.getBoundingClientRect();
         const clickX = event.clientX - rect.left;
         const percent = clickX / rect.width;
-        rideSoleSound.currentTime = percent * rideSoleSound.duration;
+        rideSong.currentTime = percent * rideSong.duration;
     });
 
     function formatTime(seconds) {
