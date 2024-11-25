@@ -45,3 +45,24 @@ tape2.addEventListener("mousemove", (e) => dragMove(e, tape2));
 
 tape1.addEventListener("wheel", (e) => handleScroll(e, tape1));
 tape2.addEventListener("wheel", (e) => handleScroll(e, tape2));
+
+function createStars() {
+  const starContainer = document.querySelector(".stars");
+  const starCount = 100;
+
+  for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+
+      const size = Math.random() * 3 + 2;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+
+      starContainer.appendChild(star);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", createStars);
