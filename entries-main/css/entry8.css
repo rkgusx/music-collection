@@ -128,11 +128,11 @@ body.darkened .dark-overlay {
 }
 
 h1 {
-    font-family: 'Noto Sans Thai', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 0.9rem;
     margin: 0;
     margin-top: 10px;
-    color: #3a3a3a;
+    color: #000000;
     z-index: 3;
     position: relative;
     text-align: center;
@@ -166,7 +166,7 @@ h1 {
 
 .progress {
     height: 100%;
-    background-color: #3a3a3a;
+    background-color: #000000;
     border-radius: 5px;
     width: 0; 
 }
@@ -185,7 +185,7 @@ h1 {
 .play-button:before {
     content: '▶';
     font-size: 20px;
-    color: #3a3a3a;
+    color: #000000;
     transition: transform 0.2s;
 }
 
@@ -201,6 +201,6 @@ h1 {
     font-size: 0.7rem;
     color: #3a3a3a;
     margin-top: 5px;
-    font-family: 'Noto Sans Thai', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
 }
