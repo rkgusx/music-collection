@@ -96,3 +96,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const shareButton = document.querySelector(".share-btn");
+
+    shareButton.addEventListener("click", function() {
+        const pageUrl = window.location.href;
+
+        navigator.clipboard.writeText(pageUrl).then(function() {
+            alert("Page URL copied to clipboard!");
+        }).catch(function(err) {
+            console.error("Error copying URL: ", err);
+        });
+    });
+
+});

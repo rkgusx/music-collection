@@ -134,6 +134,7 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     color: #333;
+    margin-top: -4px;
 }
 
 .slider-container {
@@ -190,8 +191,8 @@ body {
 }
 
 .dots span {
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
     cursor: pointer;
@@ -201,3 +202,15 @@ body {
 .dots span.active {
     background-color: rgba(255, 255, 255, 1); 
 }
+
+.user-avatar-small {
+    width: 50px;  
+    height: auto;
+    vertical-align: middle; 
+    margin-right: -2px;
+  }
+  
+  .like-users {
+    display: flex;
+    align-items: center;
+  }
