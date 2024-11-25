@@ -72,18 +72,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const starContainer = document.querySelector(".stars");
     const starCount = 100;
 
-    for (let i = 0; i < starCount; i++) {
-      const star = document.createElement("div");
-      star.classList.add("star");
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
+    let storedStars = localStorage.getItem('starPositions');
+    if (!storedStars) {
+      storedStars = [];
+      for (let i = 0; i < starCount; i++) {
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        storedStars.push({ top, left });
+      }
+      localStorage.setItem('starPositions', JSON.stringify(storedStars));
+    } else {
+      storedStars = JSON.parse(storedStars);
+    }
+
+    storedStars.forEach(star => {
+      const starElement = document.createElement("div");
+      starElement.classList.add("star");
+      starElement.style.top = `${star.top}%`;
+      starElement.style.left = `${star.left}%`;
 
       const size = Math.random() * 3 + 2;
-      star.style.width = `${size}px`;
-      star.style.height = `${size}px`;
+      starElement.style.width = `${size}px`;
+      starElement.style.height = `${size}px`;
 
-      starContainer.appendChild(star);
-    }
+      starContainer.appendChild(starElement);
+    });
   };
 
   createStars();
