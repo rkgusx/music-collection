@@ -180,18 +180,20 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -15px;
 }
 
 .play-button:before {
     content: '▶';
-    font-size: 20px;
+    font-size: 14px;
     color: #000000;
     transition: transform 0.2s;
+    margin-top: 1px;
 }
 
 .play-button.playing:before {
     content: '⏸';
-    font-size: 28px;
+    font-size: 20px;
 }
 
 .time-container {
