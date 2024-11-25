@@ -6,10 +6,55 @@
   <link rel="stylesheet" href="css/entry11.css">
 </head>
 <body>
-    <div class="home">
+  <audio id="audio-player" src="../songs/StealtheShow.mp3"></audio>
+  <div class="home">
     <a href="../index.html" class="home-button">
-        <img src="../images/home-icon-white.png" alt="Home Button">
-    </a></div>
-    <script src="js/entry11.js"></script>
+      <img src="../images/home-icon-black.png" alt="Home Button">
+    </a>
+  </div>
+  <div class="post-container">
+    <div class="post">
+      <div class="post-header">
+        <div class="user-info">
+          <img src="../images/ProfilePicture.JPG" alt="User Profile" class="user-avatar">
+          <div class="user-name">
+            <h2>rkgusx</h2>
+            <p>Tokyo, Japan</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider-container">
+        <div class="slider img">
+          <img src="../images/Tokyo-6.jpeg" alt="Image 1">
+          <img src="../images/Tokyo-1.jpg" alt="Image 2">
+          <img src="../images/Tokyo-4.jpg" alt="Image 3">
+          <img src="../images/Tokyo-5.jpg" alt="Image 4">
+          <img src="../images/Tokyo-3.JPG" alt="Image 5">
+
+        </div>
+        <button class="prev-btn">&#10094;</button>
+        <button class="next-btn">&#10095;</button>
+        <div class="dots">
+        </div>
+    </div>
+      <div class="post-footer">
+        <button class="like-btn">
+          <img src="../images/like.png" alt="Like" class="like-icon" id="like-icon">
+          <img src="../images/like-filled.png" alt="Like-filled" class="like-icon filled" id="like-filled-icon" style="display: none;">
+        </button>
+        <button class="share-btn">
+          <img src="../images/share.png" alt="Share">
+        </button>
+        <div class="post-stats">
+          <span>_dinnimoon, <strong>여러 명</strong>이 좋아합니다</span>
+        </div>
+        <div class="post-caption">
+          <p><strong>rkgusx</strong> Summer in Tokyo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/entry11.js"></script>
 </body>
 </html>
+
