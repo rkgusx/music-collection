@@ -6,9 +6,10 @@ function createSnowflakes() {
     snowflake.className = 'snowflake';
     snowflake.textContent = '❄';
 
-    snowflake.style.left = Math.random() * 100 + 'vw';
-    snowflake.style.fontSize = Math.random() * 1 + 0.7 + 'rem';
+    const randomPosition = Math.random() * window.innerWidth;
+    snowflake.style.left = randomPosition + 'px';
 
+    snowflake.style.fontSize = Math.random() * 1 + 0.7 + 'rem';
     snowflake.style.animationDuration = '8s';
     snowflake.style.animationTimingFunction = 'linear';
 

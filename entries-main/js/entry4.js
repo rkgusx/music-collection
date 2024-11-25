@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bellImg = document.querySelector(".bell-img");
     const pizzaClosedImg = document.querySelector(".pizza-closed-img");
     const bellSound = document.getElementById("bell-sound");
-    const rideSong = document.getElementById("ride-song");  // 새로운 노래 참조
+    const rideSong = document.getElementById("ride-song");
     const progress = document.getElementById("progress");
     const currentTime = document.getElementById("currentTime");
     const durationTime = document.getElementById("durationTime");
@@ -16,11 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bellImg.addEventListener("click", () => {
         if (!isPlayingBell) {
-            // 종 클릭 시 sound effect
             bellSound.play();
             isPlayingBell = true;
     
-            // 효과음 재생 후 나머지
             setTimeout(() => {
 
                 if (!isPizzaOpen) {
@@ -28,25 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     isPizzaOpen = true;
     
                     if (!isSongPlaying) {
-                        rideSong.play(); // 새로 추가된 노래 실행
+                        rideSong.play();
                         isSongPlaying = true;
                     }
     
-                    // 피자 열리고 종 클릭되면 뮤직 노트 표시
                     musicNoteContainer.style.display = "flex"; 
-                    h2.style.display = "none"; // h2 숨기기
-                    arrow.style.display = "none"; // arrow 숨기기
+                    h2.style.display = "none";
+                    arrow.style.display = "none";
                 } else {
                     pizzaClosedImg.src = "../images/pizza-closed.png";
                     isPizzaOpen = false;
     
-                    rideSong.pause(); // 피자 닫을 때 노래 일시 정지
+                    rideSong.pause();
                     isSongPlaying = false;
     
-                    // 피자 닫히면 뮤직 노트 숨기기
                     musicNoteContainer.style.display = "none"; 
-                    h2.style.display = "block"; // h2 다시 보이기
-                    arrow.style.display = "block"; // 화살표 다시 보이기
+                    h2.style.display = "block";
+                    arrow.style.display = "block";
                 }
             }, 0);
         }

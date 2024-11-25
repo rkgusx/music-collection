@@ -81,7 +81,6 @@ function jumpAnimation() {
     }, 200);
 }
 
-// 오디오 및 재생 컨트롤
 const audio = document.getElementById('GoodNight');
 const playButton = document.getElementById('playButton');
 const progressBar = document.getElementById('progressBar');
@@ -142,7 +141,6 @@ function formatTime(seconds) {
     return `${minutes}:${secs < 10 ? '0' + secs : secs}`;
 }
 
-// 눈 내리는 효과
 const canvas = document.getElementById('snowCanvas');
 const ctx = canvas.getContext('2d');
 
