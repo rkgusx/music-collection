@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentImageIndex = 0;
     let isAtCenter = false;
 
-    // 초기 상태 설정
     cameraImg.style.transition = "none";
     cameraImg.style.bottom = "-400px"; 
     photoContainer.style.transition = "none"; 
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
             photoContainer.style.transform = "translateY(-10%)"; 
             showButtons();
     
-            // 배경 어두운 색으로
             darkOverlay.style.background = "radial-gradient(circle at 50% 50%, #c8c8c8, #8a8a8a 70%, #404040)";
             darkOverlay.style.opacity = "1"; 
     
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
             photoContainer.style.transform = "translateY(100%)"; 
             hideButtons();
     
-            // 배경 원래 색으로 천천히 돌아가게 설정
             darkOverlay.style.transition = "background 2s ease, opacity 2s ease";
             darkOverlay.style.background = "rgba(0, 0, 0, 0)"; 
             darkOverlay.style.opacity = "0"; 
@@ -102,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateImage();
 });
 
-    // Audio Player
     const audio = document.getElementById('PhotographEdsheeran');
     const playButton = document.getElementById('playButton');
     const progressBar = document.getElementById('progressBar');

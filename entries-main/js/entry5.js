@@ -89,7 +89,7 @@ const currentTime = document.getElementById('currentTime');
 const durationTime = document.getElementById('durationTime');
 let playing = false;
 
-audio.volume = 0.7;
+audio.volume = 0.9;
 
 audio.addEventListener('loadedmetadata', () => {
     durationTime.textContent = formatTime(audio.duration);

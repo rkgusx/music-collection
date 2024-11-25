@@ -4,12 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/entry7.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="home">
     <a href="../index.html" class="home-button">
-        <img src="../images/home-icon-white.png" alt="Home Button">
+        <img src="../images/home-icon-black.png" alt="Home Button">
     </a></div>
+    <div class="audio-player-container">
+      <h1>STAY - BLACKPINK</h1>
+      <div class="audio-player">
+        <audio id="StayAudio" loop>
+          <source src="../songs/STAY-BLACKPINK.mp3" type="audio/mpeg">
+        </audio>      
+        <div class="progress-bar" id="progressBar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="time-container">
+          <span id="currentTime">0:00</span>
+          <button class="play-button" id="playButton"></button>
+          <span id="durationTime">0:00</span>
+        </div>
+      </div>
+    </div>
+    <img class="notebook" src="../images/notebook.png" alt="notebook image">
     <script src="js/entry7.js"></script>
 </body>
 </html>
