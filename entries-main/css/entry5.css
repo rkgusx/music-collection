@@ -90,11 +90,12 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -14px;
 }
 
 .play-button:before {
     content: '▶';
-    font-size: 20px;
+    font-size: 15px;
     color: #ffffff;
     transition: transform 0.2s;
     font-family: 'Pixelify Sans', sans-serif;
@@ -102,7 +103,7 @@ h1 {
 
 .play-button.playing:before {
     content: '⏸';
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Pixelify Sans', sans-serif;
 }
 

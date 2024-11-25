@@ -4,40 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/entry10.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="../songs/SoLetsGoSeetheStars.mp3" type="audio/mpeg">
-</audio>
-    <div class="home">
-    <a href="../index.html" class="home-button">
-        <img src="../images/home-icon-black.png" alt="Home Button">
-    </a></div>
-    <div class="stars"></div>
-    <div class="container">
-      <div class="cinema-tape" id="cinema-tape-1">
-        <div class="image-wrapper">
-          <img src="../images/LA7.JPG" alt="Image 8">
-          <img src="../images/LA8.jpg" alt="Image 9">
-          <img src="../images/LA12.jpg" alt="Image 10">
-          <img src="../images/LA9.JPG" alt="Image 11">
-          <img src="../images/LA10.jpg" alt="Image 12">
-          <img src="../images/LA11.jpg" alt="Image 13">
-          <img src="../images/LA2.JPG" alt="Image 14">
-          
-        </div>
+  <div class="audio-player-container">
+    <h1>So let's go see the stars - BOYNEXTDOOR</h1>
+    <div class="audio-player">
+      <audio id="audio" loop>
+        <source src="../songs/SoLetsGoSeetheStars.mp3" type="audio/mpeg">
+      </audio>
+      <div class="progress-bar" id="progressBar">
+        <div class="progress" id="progress"></div>
       </div>
-      <div class="cinema-tape" id="cinema-tape-2">
-        <div class="image-wrapper">
-          <img src="../images/LA1.jpg" alt="Image 1">
-          <img src="../images/LA14.jpg" alt="Image 2">
-          <img src="../images/LA3.jpg" alt="Image 3">
-          <img src="../images/LA4.JPG" alt="Image 4">
-          <img src="../images/LA6.JPG" alt="Image 5">
-          <img src="../images/LA5.jpg" alt="Image 6">
-          <img src="../images/LA13.jpg" alt="Image 7">
+      <div class="time-container">
+        <span id="currentTime">0:00</span>
+        <button class="play-button" id="playButton"></button>
+        <span id="durationTime">0:00</span>
       </div>
     </div>
-    <script src="./js/entry10.js"></script>
+  </div>  
+  <div class="background"></div>
+  <img src="../images/CarGame-stop.gif" alt="Paused Image" class="paused-image" id="paused-image">
+  <img src="../images/CarGame.gif" alt="Background GIF" class="background-video" id="background-gif" style="display:none;">
+
+  <div class="home">
+    <a href="../index.html" class="home-button">
+      <img src="../images/home-icon-purple.png" alt="Home Button">
+    </a>
+  </div>
+  <div class="stars"></div>
+  <script src="./js/entry10.js"></script>
 </body>
 </html>
