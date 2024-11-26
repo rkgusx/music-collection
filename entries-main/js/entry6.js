@@ -7,33 +7,10 @@ const durationTime = document.getElementById('durationTime');
 const pretzel = document.getElementById('pretzel');
 const cafe = document.getElementById('cafe');
 const audioPlayerContainer = document.querySelector('.audio-player-container');
-let playing = false;
-let isMainScreen = false;
+let playing = false; 
 
 pretzel.addEventListener('click', () => {
-    isMainScreen = !isMainScreen;
-
-    if (isMainScreen) {
-        pretzel.classList.add('small');
-        cafe.classList.remove('hidden');
-        cafe.classList.add('visible');
-        console.log('Cafe image should be visible');
-        audioPlayerContainer.classList.remove('hidden');
-        audioPlayerContainer.classList.add('visible');
-        audio.play();
-        playing = true;
-        playButton.classList.add('playing');
-    } else {
-        pretzel.classList.remove('small');
-        cafe.classList.add('hidden');
-        cafe.classList.remove('visible');
-        console.log('Cafe image should be hidden');
-        audioPlayerContainer.classList.add('hidden');
-        audioPlayerContainer.classList.remove('visible');
-        audio.pause();
-        playing = false;
-        playButton.classList.remove('playing');
-    }
+    togglePlay();
 });
 
 playButton.addEventListener('click', togglePlay);
@@ -42,17 +19,6 @@ document.addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
         event.preventDefault();
         togglePlay();
-
-        pretzel.classList.toggle('small'); 
-
-        isMainScreen = !isMainScreen;
-        if (isMainScreen) {
-            cafe.classList.add('visible');
-            cafe.classList.remove('hidden');
-        } else {
-            cafe.classList.remove('visible');
-            cafe.classList.add('hidden');
-        }
     }
 });
 
@@ -77,19 +43,38 @@ audio.addEventListener('timeupdate', () => {
 });
 
 function togglePlay() {
-    playing ? pauseAudio() : playAudio();
+    if (playing) {
+        pauseAudio();
+    } else {
+        playAudio();
+    }
 }
 
 function playAudio() {
-    audio.play();
-    playing = true;
-    playButton.classList.add('playing');
+    audio.play().then(() => { 
+        playing = true;
+        playButton.classList.add('playing');
+
+        pretzel.classList.add('small');
+        cafe.classList.remove('hidden');
+        cafe.classList.add('visible');
+        audioPlayerContainer.classList.remove('hidden');
+        audioPlayerContainer.classList.add('visible');
+    }).catch(error => {
+        console.error("재생 오류:", error);
+    });
 }
 
 function pauseAudio() {
     audio.pause();
     playing = false;
-    playButton.classList.remove('playing');
+    playButton.classList.remove('playing'); 
+
+    pretzel.classList.remove('small');
+    cafe.classList.add('hidden');
+    cafe.classList.remove('visible');
+    audioPlayerContainer.classList.add('hidden');
+    audioPlayerContainer.classList.remove('visible');
 }
 
 function formatTime(seconds) {

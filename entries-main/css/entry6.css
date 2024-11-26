@@ -1,3 +1,47 @@
+/* 기존 스타일에 추가 */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 1s ease;
+}
+
+.audio-player-container {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 사라지지 않도록 opacity 및 visibility 관련 속성 수정 */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Pretzel 이미지가 작아지거나 커질 때의 애니메이션 */
+.pretzel.small {
+    width: 150px; 
+    height: auto; 
+    position: absolute; 
+    z-index: 2;
+}
+
+.cafe {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    transition: opacity 1s ease;
+    z-index: 1;
+}
+
 .home-button {
     position: fixed;
     top: 15px;
@@ -41,18 +85,6 @@ h1 {
     z-index: 3;
     position: relative;
     text-align: center;
-}
-
-.audio-player-container {
-    position: fixed;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .audio-player {
@@ -126,19 +158,6 @@ h1 {
     top: 50px;
 }
 
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1s ease;
-}
-
-.visible {
-    opacity: 1;
-    pointer-events: auto;
-    transition: opacity 1s ease;
-}
-
-
 .pretzel {
     position: absolute;
     top: 50%;
@@ -162,20 +181,4 @@ h1 {
     100% {
         transform: translate(-50%, -50%) scale(1);
     }
-}
-
-
-.pretzel.small {
-    width: 150px; 
-    height: auto; 
-    position: absolute; 
-    z-index: 2;
-}
-
-.cafe {
-    position: absolute;
-    width: 300px;
-    height: auto;
-    transition: opacity 1s ease;
-    z-index: 1;
 }
