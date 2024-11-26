@@ -17,3 +17,125 @@
 .home-button:hover img {
     transform: scale(1.1);
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #38291c;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 70%;
+    height: 62.5%;
+    border: 1.5px solid #f8bc5c;
+    margin-top: 100px;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid #f8bc5c; 
+    transition: opacity 1.5s ease;
+}
+
+.grid-item img {
+    width: 105%;
+    height: 105%;
+    object-fit: cover; 
+    transition: opacity 1.5s ease;
+}
+
+h1 {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.9rem;
+    margin: 0;
+    margin-top: 10px;
+    color: #f8bc5c;
+    z-index: 3;
+    position: relative;
+    text-align: center;
+}
+
+.audio-player-container {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 10px;
+}
+
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #7d5f2f;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #f8bc5c;
+    border-radius: 5px;
+    width: 0; 
+}
+
+.play-button {
+    background: transparent; 
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -14px;
+}
+
+.play-button:before {
+    content: '▶';
+    font-size: 15px;
+    color: #f8bc5c;
+    transition: transform 0.2s;
+    font-family: 'Geist Mono', monospace;
+}
+
+.play-button.playing:before {
+    content: '⏸';
+    font-size: 20px;
+    font-family: 'Geist Mono', monospace;
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    font-size: 0.8rem;
+    color: #f8bc5c;
+    margin-top: 5px;
+    font-family: 'Geist Mono', monospace;
+    font-weight: bold;
+}
