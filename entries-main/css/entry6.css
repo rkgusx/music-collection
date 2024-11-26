@@ -29,42 +29,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #38291c;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    width: 70%;
-    height: 62.5%;
-    border: 1.5px solid #f8bc5c;
-    margin-top: 100px;
-}
-
-.grid-item {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    position: relative;
-    overflow: hidden;
-    border: 1.5px solid #f8bc5c; 
-    transition: opacity 1.5s ease;
-}
-
-.grid-item img {
-    width: 105%;
-    height: 105%;
-    object-fit: cover; 
-    transition: opacity 1.5s ease;
+    background-color: #f7f3ea;
 }
 
 h1 {
-    font-family: 'Geist Mono', monospace;
-    font-size: 0.9rem;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 1.2rem;
     margin: 0;
     margin-top: 10px;
-    color: #f8bc5c;
+    color: #8e6f55;
     z-index: 3;
     position: relative;
     text-align: center;
@@ -77,6 +50,9 @@ h1 {
     transform: translateX(-50%);
     z-index: 2;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .audio-player {
@@ -89,7 +65,7 @@ h1 {
 .progress-bar {
     width: 100%;
     height: 5px;
-    background-color: #7d5f2f;
+    background-color: #dbad7b;
     border-radius: 5px;
     margin: 5px 0;
     cursor: pointer;
@@ -98,7 +74,7 @@ h1 {
 
 .progress {
     height: 100%;
-    background-color: #f8bc5c;
+    background-color: #8e6f55;
     border-radius: 5px;
     width: 0; 
 }
@@ -118,15 +94,15 @@ h1 {
 .play-button:before {
     content: '▶';
     font-size: 15px;
-    color: #f8bc5c;
+    color: #8e6f55;
     transition: transform 0.2s;
-    font-family: 'Geist Mono', monospace;
+    font-family: 'Just Another Hand', cursive;
 }
 
 .play-button.playing:before {
     content: '⏸';
     font-size: 20px;
-    font-family: 'Geist Mono', monospace;
+    font-family: 'Just Another Hand', cursive;
 }
 
 .time-container {
@@ -134,8 +110,72 @@ h1 {
     justify-content: space-between;
     width: 100%; 
     font-size: 0.8rem;
-    color: #f8bc5c;
+    color: #8e6f55;
     margin-top: 5px;
-    font-family: 'Geist Mono', monospace;
+    font-family: 'Just Another Hand', cursive;
     font-weight: bold;
+}
+
+.main-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    top: 50px;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 1s ease;
+}
+
+
+.pretzel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: auto;
+    transition: all 1s ease;
+    cursor: pointer;
+    animation: growShrink 3s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes growShrink {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+.pretzel.small {
+    width: 150px; 
+    height: auto; 
+    position: absolute; 
+    z-index: 2;
+}
+
+.cafe {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    transition: opacity 1s ease;
+    z-index: 1;
 }
