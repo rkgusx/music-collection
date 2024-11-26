@@ -21,12 +21,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* 사라지지 않도록 opacity 및 visibility 관련 속성 수정 */
     opacity: 1;
     visibility: visible;
 }
 
-/* Pretzel 이미지가 작아지거나 커질 때의 애니메이션 */
 .pretzel.small {
     width: 150px; 
     height: auto; 
